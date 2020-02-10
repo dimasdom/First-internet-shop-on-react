@@ -6,8 +6,8 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import {routerMiddleware,ConnectedRouter} from 'connected-react-router'
 import {Provider} from "react-redux";
-import Layout from 'components/layout'
 import createRootReducer from "reducers";
+import routes from './routes'
 const history = createBrowserHistory();
 const middlewares = [thunk, routerMiddleware(history)];
 let store = createStore(
@@ -18,7 +18,7 @@ let store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <Layout />
+           {routes}
         </ConnectedRouter>
     </Provider>, document.getElementById('root'))
 
